@@ -34,7 +34,7 @@ export default function TODO() {
           Delete
         </button>
         <button className="item" id="index" onClick={editTask}>
-          {' '}
+          Edit
         </button>
       </div>
     );
