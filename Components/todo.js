@@ -24,12 +24,17 @@ export default function TODO() {
     setTaskList(array);
   }
 
+  function editTask() {}
+
   let listOfTasks = taskList.map((element, index) => {
     return (
       <div key={index} className="tasks">
         <span>{element}</span>
         <button className="item" id="index" onClick={deleteTask}>
           Delete
+        </button>
+        <button className="item" id="index" onClick={editTask}>
+          {' '}
         </button>
       </div>
     );
