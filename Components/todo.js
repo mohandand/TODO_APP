@@ -4,6 +4,7 @@ import './todo.css';
 export default function TODO() {
   const [task, setTask] = useState('');
   const [taskList, setTaskList] = useState([]);
+  const [invalue, setValue] = useState('');
 
   function updateTask(e) {
     e.preventDefault();
@@ -24,16 +25,20 @@ export default function TODO() {
     setTaskList(array);
   }
 
-  function editTask() {}
+  function editTask(e) {
+    e.preventDefault();
+    let { id } = e.target;
+    setValue(e.target.value);
+  }
 
   let listOfTasks = taskList.map((element, index) => {
     return (
       <div key={index} className="tasks">
-        <span>{element}</span>
+        <span id="index">{element}</span>
         <button className="item" id="index" onClick={deleteTask}>
           Delete
         </button>
-        <button className="item" id="index" onClick={editTask}>
+        <button value={element} className="item" id="index" onClick={editTask}>
           Edit
         </button>
       </div>
@@ -44,7 +49,7 @@ export default function TODO() {
     <div className="container">
       <h1>TODO APP</h1>
       <div className="inputContainer">
-        <input type="text" id="input" onChange={updateTask} />
+        <input type="text" id="input" onChange={updateTask} value={invalue} />
         <button id="Add" onClick={getTasks}>
           Add
         </button>
