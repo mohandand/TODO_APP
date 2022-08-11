@@ -40,7 +40,7 @@ span {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
   margin: 4px;
 }
-#item {
+.item {
   margin-left: 2px;
   padding: 4px;
   border-radius: 5px;

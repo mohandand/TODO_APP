@@ -28,7 +28,7 @@ export default function TODO() {
     return (
       <div key={index} className="tasks">
         <span>{element}</span>
-        <button id="item" id="index" onClick={deleteTask}>
+        <button className="item" id="index" onClick={deleteTask}>
           Delete
         </button>
       </div>
