@@ -49,7 +49,7 @@ export default function TODO() {
     <div className="container">
       <h1>TODO APP</h1>
       <div className="inputContainer">
-        <input type="text" id="input" onChange={updateTask} value={invalue} />
+        <input type="text" id="input" onChange={updateTask} />
         <button id="Add" onClick={getTasks}>
           Add
         </button>
