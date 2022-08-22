@@ -5,6 +5,8 @@ export default function TODO() {
   const [task, setTask] = useState('');
   const [taskList, setTaskList] = useState([]);
   const [invalue, setValue] = useState('');
+  const [readOnly, setReadOnly] = useState(true);
+  const [buttonName, setButtonName] = useState('EDIT');
 
   function updateTask(e) {
     e.preventDefault();
@@ -27,19 +29,33 @@ export default function TODO() {
 
   function editTask(e) {
     e.preventDefault();
-    let { id } = e.target;
-    setValue(e.target.value);
+    if (e.target.value == 'EDIT') {
+      setReadOnly(false);
+      setButtonName('SAVE');
+    } else {
+      let { id } = e.target;
+      taskList[id] = e.target.value;
+      let array = [...taskList];
+    setTaskList(array);
+      setReadOnly(true);
+      setButtonName('EDIT');
+    }
   }
 
   let listOfTasks = taskList.map((element, index) => {
     return (
       <div key={index} className="tasks">
-        <span id="index">{element}</span>
+        <input id="index" defaultValue={element} readOnly={readOnly} />
         <button className="item" id="index" onClick={deleteTask}>
-          Delete
+          DELETE
         </button>
-        <button value={element} className="item" id="index" onClick={editTask}>
-          Edit
+        <button
+          value={buttonName}
+          className="item"
+          id="index"
+          onClick={editTask}
+        >
+          {buttonName}
         </button>
       </div>
     );
